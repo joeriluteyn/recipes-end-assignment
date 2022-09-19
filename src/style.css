@@ -1,0 +1,78 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Nav
+        4.2 Header
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    flex-basis: 800px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 40px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------- 3.1 Reusables ----------------------- */
+
+/* --------------- 3.2 Other --------------------------- */
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Nav ------------------------- */
+
+.nav-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 200px;
+    margin-right: 40px;
+}
+
+.logo {
+    font-family: 'austeinscript';
+}
+
+/* --------------- 4.2 Header ------------------- */
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
