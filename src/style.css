@@ -8,9 +8,12 @@
     4. Areas
         4.1 Nav
         4.2 Header
-        etc.
-    5. Media Queries
-////////////////////////*/
+        4.3 Randomized recipes
+        4.4 Search bar
+        4.5 Search results
+        4.6 Footer
+        5. Media Queries
+/////////////////////////
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
@@ -20,14 +23,20 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 img {
     width: 100%;
-    vertical-align: middle;
 }
 
 /* ------------------------------- 2. Typography ----------------------------------- */
 
-
+body {
+    font-family: 'poppins', sans-serif;
+}
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
@@ -38,7 +47,7 @@ img {
 }
 
 .inner-container {
-    flex-basis: 800px;
+    flex-basis: 600px;
     flex-grow: 0;
     flex-shrink: 1;
     margin: 40px 20px;
@@ -54,25 +63,243 @@ img {
 
 /* --------------- 4.1 Nav ------------------------- */
 
+nav {
+    background-color: #eeeeee;
+    min-height: 50px;
+}
+
 .nav-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 20px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     width: 200px;
-    margin-right: 40px;
+
 }
 
-.logo {
-    font-family: 'austeinscript';
+nav .logo {
+    font-family: 'austeinscript', "poppins", sans-serif; !important;
+    color: #2d465a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+nav ul a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
+}
+
+nav ul a:visited {
+    color: black;
+    text-decoration: none;
+}
 /* --------------- 4.2 Header ------------------- */
+
+header {
+    background-image: url("Assets/images/hero-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+header {
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.header-h1-no-bold {
+    font-weight: normal;
+}
+
+header button {
+    background-color: #70b6be;
+    color: #2d465a;
+    border: none;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+
+}
+
+/* ------------------------------- 4.3 Randomized recipes -------------------------------- */
+.randomized-cards-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    min-height: 200px;
+}
+
+.cards-position-wrapper {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: -40px;
+}
+
+.general-card-style {
+    background-color: #eeeeee;
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.general-card-style img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+.space-between-wrap-recipe-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-card-style p {
+    font-weight: bold;
+}
+
+.first-card-wrapper {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex-basis: 300px;
+    box-shadow: -5px 10px 18px #888888;
+}
+
+.second-card-wrapper {
+    border-radius: 5px;
+    flex-basis: 400px;
+    box-shadow: 5px 10px 18px #888888;
+    min-height: 150px;
+
+}
+
+.third-card-wrapper {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-basis: 300px;
+    box-shadow: 10px 10px 10px #888888;
+}
+
+.first-card-wrapper img {
+    border-top-right-radius: 0;
+}
+
+.third-card-wrapper img {
+    border-top-left-radius: 0;
+}
+
+.time-icon {
+    width: 10px;
+}
+
+.second-card-wrapper .recipe-card-text-wrapper{
+    min-width:  340px;
+}
+
+.recipe-card-text-wrapper {
+    min-width: 300px;
+    padding: 20px;
+}
+
+span {
+    padding-top: 15px;
+}
+
+.first-card-wrapper .recipe-card-text-wrapper {
+    box-shadow: -5px 0px 20px #888888 inset;
+}
+
+.third-card-wrapper .recipe-card-text-wrapper {
+    box-shadow: 15px 0px 18px #888888 inset;
+}
+
+/* ------------------------------- 4.4 Search bar -------------------------------- */
+
+.search-bar {
+    background-color: #2d465a;
+    height: 50px;
+}
+
+/* ------------------------------- 4.5 Search Results -------------------------------- */
+
+.search-result-recipe-cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 1000px;
+}
+
+.result-card-wrapper {
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: -5px 10px 18px #888888;
+}
+
+/* ------------------------------- 4.6 Footer -------------------------------- */
+
+footer {
+    background-color: #283e53;
+    color: white;
+}
+
+footer p {
+    color: #67a7b1;
+}
+
+.wrapper-footer {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    justify-content: space-between;
+}
+
+.social-media-icons {
+    width: 25px;
+    height: 25px;
+    background-color: #67a7b1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.social-media-icons img {
+    width: 15px;
+
+}
+
+.icon-wrapper {
+    display: flex;
+    padding-top: 15px;
+}
+
+footer ul {
+
+    list-style: none;
+    padding-top: 15px;
+    font-family: "poppinslight", "poppins", sans-serif;
+}
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
