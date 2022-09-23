@@ -52,7 +52,6 @@ body {
     flex-shrink: 1;
     margin: 40px 20px;
     display: flex;
-    flex-direction: column;
 }
 
 /* --------------- 3.1 Reusables ----------------------- */
@@ -117,6 +116,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
 }
 
 .header-h1-no-bold {
@@ -235,7 +235,51 @@ span {
 
 .search-bar {
     background-color: #2d465a;
-    height: 50px;
+}
+
+.search-icon {
+    height: 10px;
+    width: 10px;
+}
+
+.search-bar form {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar select, .submit-button {
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    color: #2d465a;
+}
+
+.search-bar select {
+    margin: 10px;
+}
+
+.search-bar input {
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    color: #2d465a;
+}
+
+.search-icon-button {
+    border: none;
+    padding: 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-style: hidden;
 }
 
 /* ------------------------------- 4.5 Search Results -------------------------------- */
@@ -261,6 +305,7 @@ span {
 footer {
     background-color: #283e53;
     color: white;
+    font-size: small;
 }
 
 footer p {
@@ -301,5 +346,11 @@ footer ul {
     padding-top: 15px;
     font-family: "poppinslight", "poppins", sans-serif;
 }
+
+footer li {
+    margin-top: 10px;
+}
+
+
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
