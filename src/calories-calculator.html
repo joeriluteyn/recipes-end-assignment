@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The clueless cook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./Assets/fonts/fonts.css">
+    <script src="main.js" type="module" defer></script>
+</head>
+<body>
+<nav class="outer-container nav-container">
+    <div class="logo"><h2>The Clueless Cook</h2></div>
+    <ul class="nav-links">
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Calculator</a></li>
+    </ul>
+</nav>
+<main class="outer-container">
+    <section class="inner-container calories_calculator-inner-container">
+        <h2>Calorie Calculator</h2>
+        <div class="calories_search-bar-button-wrapper">
+            <form class="calories_product-form">
+                <label for="calories-search-field">
+                    <input id="calories-search-field" type="text" placeholder="Barcode/Product">
+                    <img class="calories_search-icon" src="Assets/icons/icons8-search-30.png">
+                </label>
+            </form>
+            <button class="calories_product-form-button" type="submit">Search &#129130;</button>
+        </div>
+        <table class="product-table">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Label</th>
+            </tr>
+            <tr class="output-calories-search">
+                <th>Mars</th>
+                <th>60</th>
+                <th>gram</th>
+            </tr>
+        </table>
+
+        <form class="calories_servings-form">
+            <p>Amount</p>
+            <label  for="serving-amount-field">
+                <input class="calories_serving-input-field" id="serving-amount-field" type="number">
+            </label>
+            <p>Serving(s)</p>
+            <button class="calories_servings-add-button"  type="submit">&#43; Add</button>
+        </form>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Calories</th>
+                <th>Fat</th>
+                <th>Carbs</th>
+            </tr>
+            <tr class="output-calories-and-serving-search">
+
+            </tr>
+            <tr class="total-output-calories-and-serving-search">
+                <th>Total</th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </table>
+    </section>
+
+</main>
+<footer class="outer-container">
+    <div class="inner-container wrapper-footer">
+        <div class="list-wrapper">
+            <p>Information</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum</li>
+                <li>Dolor sit</li>
+                <li>Sit amet</li>
+            </ul>
+        </div>
+        <div class="list-wrapper">
+            <p>About</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum</li>
+                <li>Dolor sit</li>
+            </ul>
+        </div>
+        <div class="list-wrapper">
+            <p>Contact</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum</li>
+                <li>Dolor sit</li>
+            </ul>
+        </div>
+        <div class="list-wrapper">
+            <p>Social</p>
+            <div class="icon-wrapper">
+                <div class="social-media-icons">
+                    <img src="Assets/icons/facebook.svg" alt="facebook">
+                </div>
+                <div class="social-media-icons">
+                    <img src="Assets/icons/instagram.svg" alt="instagram">
+                </div>
+                <div class="social-media-icons">
+                    <img src="Assets/icons/linkedin.svg" alt="linkedin">
+                </div>
+                <div class="social-media-icons">
+                    <img src="Assets/icons/twitter.svg" alt="twitter">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

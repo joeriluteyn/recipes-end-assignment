@@ -12,9 +12,11 @@
         4.4 Search bar
         4.5 Search results
         4.6 Footer
+        4.7 Recipe page
+
         5. Media Queries
 /////////////////////////
-
+*/
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
 * {
@@ -224,11 +226,11 @@ span {
 }
 
 .first-card-wrapper .recipe-card-text-wrapper {
-    box-shadow: -5px 0px 20px #888888 inset;
+    box-shadow: -5px 0 20px #888888 inset;
 }
 
 .third-card-wrapper .recipe-card-text-wrapper {
-    box-shadow: 15px 0px 18px #888888 inset;
+    box-shadow: 15px 0 18px #888888 inset;
 }
 
 /* ------------------------------- 4.4 Search bar -------------------------------- */
@@ -310,6 +312,7 @@ footer {
 
 footer p {
     color: #67a7b1;
+    font-weight: bold;
 }
 
 .wrapper-footer {
@@ -341,16 +344,117 @@ footer p {
 }
 
 footer ul {
-
     list-style: none;
     padding-top: 15px;
     font-family: "poppinslight", "poppins", sans-serif;
+    padding-left: 0;
 }
 
 footer li {
     margin-top: 10px;
 }
 
+/* ------------------------------- 4.7 Recipe page -------------------------------- */
 
+.recipe_page-recipe {
+    flex-direction: column;
+}
 
+.recipe_page-main {
+    color: #283e53;
+    padding-top: 50px;
+}
+.recipe_page_recipe-wrapper, .recipe_page-health-labels-wrapper {
+    min-width: 600px;
+}
+
+.recipe_page_recipe-wrapper h3 {
+    display: inline;
+    margin-right: 20px;
+}
+
+.recipe_page-time-icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.recipe_page-main article {
+    display: flex;
+}
+
+.recipe_page-img-wrapper {
+    min-width: 400px;
+}
+
+.recipe_page-health-labels-wrapper ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recipe_page-health-labels-wrapper li {
+    display: inline;
+    padding: 8px;
+    border: 2px solid #283e53;
+    background-color: #70b6be;
+    border-radius: 25px;
+    margin-right: 5px;
+}
+
+/* ------------------------------- 4.8 Calories Calculator -------------------------------- */
+
+.calories_calculator-inner-container {
+    flex-direction: column;
+    color: #283e53;
+}
+
+.calories_product-form {
+    border: 1px solid #283e53;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.calories_product-form-button, .calories_servings-add-button {
+    padding: 5px 15px;
+    background-color: #67a7b1;
+    color: #283e53;
+    border-radius: 3px;
+    border: 1px solid #283e53;
+    font-weight: bold;
+}
+
+.calories_product-form input {
+    border: none;
+}
+
+.calories_search-bar-button-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+}
+
+.calories_servings-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 450px;
+    margin: 35px 0;
+}
+
+.calories_search-icon {
+    width: 10px;
+}
+
+.calories_serving-input-field {
+    padding: 5px;
+    width: 80px;
+}
+
+.total-output-calories-and-serving-search {
+    border: 1px solid black;
+}
+
+table {
+    text-align: left;
+}
 /* ------------------------------- 5. Media Queries -------------------------------- */
