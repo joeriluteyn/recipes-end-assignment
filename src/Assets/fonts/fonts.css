@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'austeinscript';
+    src: url('austein-webfont.woff2') format('woff2'),
+    url('austein-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('poppins-bold-webfont.woff2') format('woff2'),
+    url('poppins-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('poppins-italic-webfont.woff2') format('woff2'),
+    url('poppins-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('poppins-regular-webfont.woff2') format('woff2'),
+    url('poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('poppins-thin-webfont.woff2') format('woff2'),
+    url('poppins-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: oblique;
+
+}

@@ -1,0 +1,460 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Nav
+        4.2 Header
+        4.3 Randomized recipes
+        4.4 Search bar
+        4.5 Search results
+        4.6 Footer
+        4.7 Recipe page
+
+        5. Media Queries
+/////////////////////////
+*/
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    flex-basis: 600px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 40px 20px;
+    display: flex;
+}
+
+/* --------------- 3.1 Reusables ----------------------- */
+
+/* --------------- 3.2 Other --------------------------- */
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Nav ------------------------- */
+
+nav {
+    background-color: #eeeeee;
+    min-height: 50px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+
+}
+
+nav .logo {
+    font-family: 'austeinscript', "poppins", sans-serif; !important;
+    color: #2d465a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
+}
+
+nav ul a:visited {
+    color: black;
+    text-decoration: none;
+}
+/* --------------- 4.2 Header ------------------- */
+
+header {
+    background-image: url("Assets/images/hero-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+header {
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.header-h1-no-bold {
+    font-weight: normal;
+}
+
+header button {
+    background-color: #70b6be;
+    color: #2d465a;
+    border: none;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+
+}
+
+/* ------------------------------- 4.3 Randomized recipes -------------------------------- */
+.randomized-cards-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    min-height: 200px;
+}
+
+.cards-position-wrapper {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: -40px;
+}
+
+.general-card-style {
+    background-color: #eeeeee;
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.general-card-style img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+.space-between-wrap-recipe-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-card-style p {
+    font-weight: bold;
+}
+
+.first-card-wrapper {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex-basis: 300px;
+    box-shadow: -5px 10px 18px #888888;
+}
+
+.second-card-wrapper {
+    border-radius: 5px;
+    flex-basis: 400px;
+    box-shadow: 5px 10px 18px #888888;
+    min-height: 150px;
+
+}
+
+.third-card-wrapper {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-basis: 300px;
+    box-shadow: 10px 10px 10px #888888;
+}
+
+.first-card-wrapper img {
+    border-top-right-radius: 0;
+}
+
+.third-card-wrapper img {
+    border-top-left-radius: 0;
+}
+
+.time-icon {
+    width: 10px;
+}
+
+.second-card-wrapper .recipe-card-text-wrapper{
+    min-width:  340px;
+}
+
+.recipe-card-text-wrapper {
+    min-width: 300px;
+    padding: 20px;
+}
+
+span {
+    padding-top: 15px;
+}
+
+.first-card-wrapper .recipe-card-text-wrapper {
+    box-shadow: -5px 0 20px #888888 inset;
+}
+
+.third-card-wrapper .recipe-card-text-wrapper {
+    box-shadow: 15px 0 18px #888888 inset;
+}
+
+/* ------------------------------- 4.4 Search bar -------------------------------- */
+
+.search-bar {
+    background-color: #2d465a;
+}
+
+.search-icon {
+    height: 10px;
+    width: 10px;
+}
+
+.search-bar form {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar select, .submit-button {
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    color: #2d465a;
+}
+
+.search-bar select {
+    margin: 10px;
+}
+
+.search-bar input {
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    color: #2d465a;
+}
+
+.search-icon-button {
+    border: none;
+    padding: 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-style: hidden;
+}
+
+/* ------------------------------- 4.5 Search Results -------------------------------- */
+
+.search-result-recipe-cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 1000px;
+}
+
+.result-card-wrapper {
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: -5px 10px 18px #888888;
+}
+
+/* ------------------------------- 4.6 Footer -------------------------------- */
+
+footer {
+    background-color: #283e53;
+    color: white;
+    font-size: small;
+}
+
+footer p {
+    color: #67a7b1;
+    font-weight: bold;
+}
+
+.wrapper-footer {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    justify-content: space-between;
+}
+
+.social-media-icons {
+    width: 25px;
+    height: 25px;
+    background-color: #67a7b1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.social-media-icons img {
+    width: 15px;
+
+}
+
+.icon-wrapper {
+    display: flex;
+    padding-top: 15px;
+}
+
+footer ul {
+    list-style: none;
+    padding-top: 15px;
+    font-family: "poppinslight", "poppins", sans-serif;
+    padding-left: 0;
+}
+
+footer li {
+    margin-top: 10px;
+}
+
+/* ------------------------------- 4.7 Recipe page -------------------------------- */
+
+.recipe_page-recipe {
+    flex-direction: column;
+}
+
+.recipe_page-main {
+    color: #283e53;
+    padding-top: 50px;
+}
+.recipe_page_recipe-wrapper, .recipe_page-health-labels-wrapper {
+    min-width: 600px;
+}
+
+.recipe_page_recipe-wrapper h3 {
+    display: inline;
+    margin-right: 20px;
+}
+
+.recipe_page-time-icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.recipe_page-main article {
+    display: flex;
+}
+
+.recipe_page-img-wrapper {
+    min-width: 400px;
+}
+
+.recipe_page-health-labels-wrapper ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recipe_page-health-labels-wrapper li {
+    display: inline;
+    padding: 8px;
+    border: 2px solid #283e53;
+    background-color: #70b6be;
+    border-radius: 25px;
+    margin-right: 5px;
+}
+
+/* ------------------------------- 4.8 Calories Calculator -------------------------------- */
+
+.calories_calculator-inner-container {
+    flex-direction: column;
+    color: #283e53;
+}
+
+.calories_product-form {
+    border: 1px solid #283e53;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.calories_product-form-button, .calories_servings-add-button {
+    padding: 5px 15px;
+    background-color: #67a7b1;
+    color: #283e53;
+    border-radius: 3px;
+    border: 1px solid #283e53;
+    font-weight: bold;
+}
+
+.calories_product-form input {
+    border: none;
+}
+
+.calories_search-bar-button-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+}
+
+.calories_servings-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 450px;
+    margin: 35px 0;
+}
+
+.calories_search-icon {
+    width: 10px;
+}
+
+.calories_serving-input-field {
+    padding: 5px;
+    width: 80px;
+}
+
+.total-output-calories-and-serving-search {
+    border: 1px solid black;
+}
+
+table {
+    text-align: left;
+}
+/* ------------------------------- 5. Media Queries -------------------------------- */
