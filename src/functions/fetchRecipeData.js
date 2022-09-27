@@ -1,9 +1,8 @@
 import axios from "axios";
 import createRecipeList from "./createRecipeList";
 
-
 // Fetching data from Edamam API
-export default async function fetchRecipeData ( searchQuery, mealType ){
+export default async function fetchRecipeData ( searchQuery, mealType, diet, cuisineType ){
 
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/recipes/v2"
@@ -19,14 +18,15 @@ export default async function fetchRecipeData ( searchQuery, mealType ){
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: searchQuery,
-                mealType: mealType
+                mealType: mealType,
+                diet: diet,
+                cuisineType: cuisineType
             }
         })
 
         const arrayOfRecipes = response.data.hits
-        console.log(arrayOfRecipes)
         createRecipeList(arrayOfRecipes)
-
+        console.log(arrayOfRecipes)
 
     }    // Catch error messages and show them in the UI
     catch ( e ) {

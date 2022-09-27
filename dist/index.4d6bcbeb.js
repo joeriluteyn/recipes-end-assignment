@@ -535,53 +535,24 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchRecipeDataJs = require("./functions/fetchRecipeData.js");
 var _fetchRecipeDataJsDefault = parcelHelpers.interopDefault(_fetchRecipeDataJs);
-// Fetching data from Edamam API
 const submitForm = document.getElementById("onSubmit");
 const ingredients = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
+const diet = document.getElementById("diet-field");
+const cuisineType = document.getElementById("cuisine-field");
 submitForm.addEventListener("submit", (e)=>{
     e.preventDefault();
-    (0, _fetchRecipeDataJsDefault.default)(ingredients.value);
+    (0, _fetchRecipeDataJsDefault.default)(ingredients.value, mealType.value, diet.value, cuisineType.value);
 });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeData.js":"4FvxE"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"4FvxE":[function(require,module,exports) {
+},{"./functions/fetchRecipeData.js":"4FvxE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FvxE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeList = require("./createRecipeList");
 var _createRecipeListDefault = parcelHelpers.interopDefault(_createRecipeList);
-async function fetchRecipeData(searchQuery, mealType) {
+async function fetchRecipeData(searchQuery, mealType, diet, cuisineType) {
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
     const API_ID = "331ee4f5";
@@ -594,12 +565,14 @@ async function fetchRecipeData(searchQuery, mealType) {
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: searchQuery,
-                mealType: mealType
+                mealType: mealType,
+                diet: diet,
+                cuisineType: cuisineType
             }
         });
         const arrayOfRecipes = response.data.hits;
-        console.log(arrayOfRecipes);
         (0, _createRecipeListDefault.default)(arrayOfRecipes);
+        console.log(arrayOfRecipes);
     } catch (e) {
         const error = document.getElementById("error-message");
         if (e.response.status === 404) error.innerText = "page not found";
@@ -608,7 +581,7 @@ async function fetchRecipeData(searchQuery, mealType) {
 }
 exports.default = fetchRecipeData;
 
-},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./createRecipeList":"791BB"}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","./createRecipeList":"791BB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -3970,16 +3943,52 @@ function createRecipeList(arr) {
     const recipeList = document.getElementById("recipe-card-list");
     recipeList.innerHTML = "";
     arr.map((item)=>{
-        recipeList.innerHTML += `
-                <li> 
-                    <h3>${item.recipe.label}</h3>
+        recipeList.innerHTML += `                      
+                <li class="result-card-wrapper general-card-style">
                     <img src="${item.recipe.image}">
-                </li>
+                    <div class="recipe-card-text-wrapper">
+                        <p>${item.recipe.label}</p>
+                        <div class="space-between-wrap-recipe-cards">
+                            <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
+                            <span><img class="time-icon" src="Assets/icons/time.svg" alt="time">${item.recipe.totalTime}  min.</span>
+                        </div>
+                    </div>
+                </li>                
             `;
     });
 }
 exports.default = createRecipeList;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire2c93")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire2c93")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
