@@ -5,28 +5,32 @@
     <title>The clueless cook</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./Assets/fonts/fonts.css">
-    <script src="main.js" type="module" defer></script>
+    <script src="caloriesCalculator.js" type="module" defer></script>
 </head>
 <body>
 <nav class="outer-container nav-container">
     <div class="logo"><h2>The Clueless Cook</h2></div>
     <ul class="nav-links">
-        <li><a href="">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="">About</a></li>
-        <li><a href="">Calculator</a></li>
+        <li><a href="calories-calculator.html">Calculator</a></li>
     </ul>
 </nav>
 <main class="outer-container">
+
     <section class="inner-container calories_calculator-inner-container">
         <h2>Calorie Calculator</h2>
+
         <div class="calories_search-bar-button-wrapper">
-            <form class="calories_product-form">
-                <label for="calories-search-field">
+            <form id="caloriesOnSubmit" >
+                <label for="calories-search-field" class="calories_product-form">
                     <input id="calories-search-field" type="text" placeholder="Barcode/Product">
                     <img class="calories_search-icon" src="Assets/icons/icons8-search-30.png">
                 </label>
+                <button class="calories_product-form-button" type="submit">Search &#129130;</button>
             </form>
-            <button class="calories_product-form-button" type="submit">Search &#129130;</button>
+            <span id="calories_error-message"></span>
+
         </div>
         <table class="product-table">
             <tr>
@@ -34,41 +38,37 @@
                 <th>Quantity</th>
                 <th>Label</th>
             </tr>
-            <tr class="output-calories-search">
-                <th>Mars</th>
-                <th>60</th>
-                <th>gram</th>
+            <tr id="product-output">
+
             </tr>
         </table>
 
-        <form class="calories_servings-form">
+        <form id="servingsOnSubmit" class="calories_servings-form">
             <p>Amount</p>
-            <label  for="serving-amount-field">
+            <label for="serving-amount-field">
                 <input class="calories_serving-input-field" id="serving-amount-field" type="number">
             </label>
             <p>Serving(s)</p>
-            <button class="calories_servings-add-button"  type="submit">&#43; Add</button>
+            <button id="add-button" class="calories_servings-add-button" type="button">&#43; Add</button>
         </form>
-        <table>
+        <table id="calculate-serving-output">
             <tr>
                 <th>Product</th>
                 <th>Calories</th>
                 <th>Fat</th>
                 <th>Carbs</th>
             </tr>
-            <tr class="output-calories-and-serving-search">
 
-            </tr>
-            <tr class="total-output-calories-and-serving-search">
-                <th>Total</th>
-                <th></th>
-                <th></th>
-                <th></th>
-
+        </table>
+        <table class="total-output-calories-and-serving-search">
+            <tr id="total-output-calories-and-serving-search" class="border-top">
+                <td >Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
     </section>
-
 </main>
 <footer class="outer-container">
     <div class="inner-container wrapper-footer">
