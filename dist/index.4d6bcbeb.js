@@ -535,6 +535,14 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchRecipeDataJs = require("./functions/fetchRecipeData.js");
 var _fetchRecipeDataJsDefault = parcelHelpers.interopDefault(_fetchRecipeDataJs);
+var _fetchRecipeDataForRandom = require("./functions/fetchRecipeDataForRandom");
+var _fetchRecipeDataForRandomDefault = parcelHelpers.interopDefault(_fetchRecipeDataForRandom);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _createRecipeList = require("./functions/createRecipeList");
+var _createRecipeListDefault = parcelHelpers.interopDefault(_createRecipeList);
+var _createRandomCards = require("./functions/createRandomCards");
+var _createRandomCardsDefault = parcelHelpers.interopDefault(_createRandomCards);
 const submitForm = document.getElementById("onSubmit");
 const ingredients = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
@@ -542,17 +550,21 @@ const diet = document.getElementById("diet-field");
 const cuisineType = document.getElementById("cuisine-field");
 submitForm.addEventListener("submit", (e)=>{
     e.preventDefault();
-    (0, _fetchRecipeDataJsDefault.default)(ingredients.value, mealType.value, diet.value, cuisineType.value);
+    (0, _fetchRecipeDataJsDefault.default)(ingredients.value, mealType.value, diet.value, cuisineType.value, (0, _createRecipeListDefault.default));
 });
+function activateRandomCards() {
+    (0, _fetchRecipeDataJsDefault.default)("pasta", "Breakfast", "balanced", "italian", (0, _createRandomCardsDefault.default));
+}
+activateRandomCards();
 
-},{"./functions/fetchRecipeData.js":"4FvxE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FvxE":[function(require,module,exports) {
+},{"./functions/fetchRecipeData.js":"4FvxE","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/createRecipeList":"791BB","./functions/createRandomCards":"4B7Ai","./functions/fetchRecipeDataForRandom":"hXOz1"}],"4FvxE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeList = require("./createRecipeList");
 var _createRecipeListDefault = parcelHelpers.interopDefault(_createRecipeList);
-async function fetchRecipeData(searchQuery, mealType, diet, cuisineType) {
+async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
     const API_ID = "331ee4f5";
@@ -567,11 +579,12 @@ async function fetchRecipeData(searchQuery, mealType, diet, cuisineType) {
                 q: searchQuery,
                 mealType: mealType,
                 diet: diet,
-                cuisineType: cuisineType
+                cuisineType: cuisineType,
+                random: true
             }
         });
         const arrayOfRecipes = response.data.hits;
-        (0, _createRecipeListDefault.default)(arrayOfRecipes);
+        usedFunction(arrayOfRecipes);
         console.log(arrayOfRecipes);
     } catch (e) {
         const error = document.getElementById("error-message");
@@ -3945,12 +3958,12 @@ function createRecipeList(arr) {
     arr.map((item)=>{
         recipeList.innerHTML += `                      
                 <li class="result-card-wrapper general-card-style">
-                    <img src="${item.recipe.image}">
+                    <img class="recipe-card-img" src="${item.recipe.image}">
                     <div class="recipe-card-text-wrapper">
                         <p>${item.recipe.label}</p>
                         <div class="space-between-wrap-recipe-cards">
                             <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
-                            <span><img class="time-icon" src="Assets/icons/time.svg" alt="time">${item.recipe.totalTime}  min.</span>
+                            <div class="time-icon-recipe-card"><span></div>${item.recipe.totalTime}  min.</span>
                         </div>
                     </div>
                 </li>                
@@ -3989,6 +4002,88 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire2c93")
+},{}],"4B7Ai":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function createRandomCards(arr) {
+    const randomCards = document.getElementById("random-recipe-card-list");
+    randomCards.innerHTML = "";
+    arr.slice(0, 3).map((item)=>{
+        randomCards.innerHTML += `
+        <li class="random-card-wrapper general-card-style">
+            <img class="recipe-card-img" src="${item.recipe.image}">
+            <div class="recipe-card-text-wrapper random-card-text-wrapper">
+                <p>${item.recipe.label}</p>
+                <div class="space-between-wrap-recipe-cards">
+                    <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
+                    <div class="time-icon-recipe-card"><span></div>${item.recipe.totalTime}  min.</span>
+                </div>
+            </div>
+        </li>      
+        `;
+    });
+} // <div className="cards-position-wrapper">
+ //     <div className="first-card-wrapper general-card-style">
+ //         <img src="Assets/images/hero-image.jpg" alt="">
+ //             <div className="recipe-card-text-wrapper">
+ //                 <p>${arr.recipe.label}</p>
+ //                 <div className="space-between-wrap-recipe-cards">
+ //                     <span>Calories | ingredients</span>
+ //                     <span><img className="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
+ //                 </div>
+ //             </div>
+ //     </div>
+ //     <div className="second-card-wrapper general-card-style">
+ //         <img src="Assets/images/hero-image.jpg" alt="">
+ //             <div className="recipe-card-text-wrapper">
+ //                 <p>Recipe title</p>
+ //                 <div className="space-between-wrap-recipe-cards">
+ //                     <span>Calories | ingredients</span>
+ //                     <span><img className="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
+ //                 </div>
+ //             </div>
+ //     </div>
+ //     <div className="third-card-wrapper general-card-style">
+ //         <img src="Assets/images/hero-image.jpg" alt="">
+ //             <div className="recipe-card-text-wrapper">
+ //                 <p>Recipe title</p>
+ //                 <div className="space-between-wrap-recipe-cards">
+ //                     <span>Calories | ingredients</span>
+ //                     <span><img className="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
+ //                 </div>
+ //             </div>
+ //     </div>
+ // </div>
+exports.default = createRandomCards;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hXOz1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+async function fetchRecipeDataForRandom(searchQuery, mealType, diet, cuisineType) {
+    const URI = "https://api.edamam.com";
+    const ENDPOINT = "/api/recipes/v2";
+    const API_ID = "331ee4f5";
+    const API_KEY = "de7d45fa31f02836d9bb8b1080ed8f9a";
+    try {
+        const response = await (0, _axiosDefault.default).get(URI + ENDPOINT, {
+            params: {
+                type: "public",
+                app_id: API_ID,
+                app_key: API_KEY,
+                q: searchQuery,
+                mealType: mealType,
+                diet: diet,
+                cuisineType: cuisineType
+            }
+        });
+        const arrayOfRecipes = response.data.hits;
+        console.log(arrayOfRecipes);
+    } catch (e) {}
+}
+exports.default = fetchRecipeDataForRandom;
+
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire2c93")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map

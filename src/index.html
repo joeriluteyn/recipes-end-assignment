@@ -14,9 +14,9 @@
 <nav class="outer-container nav-container">
     <div class="logo"><h2>The Clueless Cook</h2></div>
     <ul class="nav-links">
-        <li><a href="">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="">About</a></li>
-        <li><a href="">Calculator</a></li>
+        <li><a href="calories-calculator.html">Calculator</a></li>
     </ul>
 </nav>
 <header class="outer-container">
@@ -28,51 +28,22 @@
 </header>
 <main>
     <section class="outer-container randomized-cards-section">
-        <div class="cards-position-wrapper">
-            <div class="first-card-wrapper general-card-style">
-                <img src="Assets/images/hero-image.jpg" alt="">
-                <div class="recipe-card-text-wrapper">
-                    <p>Recipe title</p>
-                    <div class="space-between-wrap-recipe-cards">
-                        <span>Calories | ingredients</span>
-                        <span><img class="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="second-card-wrapper general-card-style">
-                <img src="Assets/images/hero-image.jpg" alt="">
-                <div class="recipe-card-text-wrapper">
-                    <p>Recipe title</p>
-                    <div class="space-between-wrap-recipe-cards">
-                        <span>Calories | ingredients</span>
-                        <span><img class="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="third-card-wrapper general-card-style">
-                <img src="Assets/images/hero-image.jpg" alt="">
-                <div class="recipe-card-text-wrapper">
-                    <p>Recipe title</p>
-                    <div class="space-between-wrap-recipe-cards">
-                        <span>Calories | ingredients</span>
-                        <span><img class="time-icon" src="Assets/icons/time.svg" alt="time">  min.</span>
-                    </div>
-
-                </div>
-            </div>
+        <div class="random-card-align">
+        <ul id="random-recipe-card-list" class="search-result-recipe-cards-wrapper random-card-container inner-container">
+        </ul>
         </div>
     </section>
     <section class="outer-container search-bar">
         <form class="inner-container" id="onSubmit">
             <label class="search-field" for="ingredients-field">
                 <input id="ingredients-field" type="text" placeholder="Recipe search">
-                <button class="search-icon-button" type="submit"><img class="search-icon"
-                                                                      src="Assets/icons/icons8-search-30.png" alt="">
+                <button class="search-icon-button" type="submit">
+                    <img class="search-icon" src="Assets/icons/icons8-search-30.png" alt="">
                 </button>
             </label>
             <label for="meal-type-field">
                 <select name="meal-type-field" id="meal-type-field">
-                    <option>Meal type</option>
+                    <option selected value="">Meal type</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>
@@ -131,7 +102,7 @@
 
     </section>
     <section class="outer-container search-results">
-        <div >
+        <div>
             <ul id="recipe-card-list" class="search-result-recipe-cards-wrapper inner-container">
             </ul>
         </div>
