@@ -567,6 +567,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeCardResults = require("./createRecipeCardResults");
 var _createRecipeCardResultsDefault = parcelHelpers.interopDefault(_createRecipeCardResults);
 async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
+    // values for API
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
     const API_ID = "331ee4f5";
@@ -574,6 +575,7 @@ async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFun
     // Fetch data from the API
     try {
         const response = await (0, _axiosDefault.default).get(URI + ENDPOINT, {
+            // parameters to be given to API where if variable is empty the value null will be given
             params: {
                 type: "public",
                 app_id: API_ID,
@@ -585,7 +587,9 @@ async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFun
                 random: true
             }
         });
+        // variable te be given to specified function
         const arrayOfRecipes = response.data.hits;
+        // activation of given function
         usedFunction(arrayOfRecipes);
     // console.log(arrayOfRecipes)
     } catch (e) {
@@ -3986,13 +3990,16 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRecipeCardResults(arr) {
     const recipeList = document.getElementById("recipe-card-list");
+    // to empty page
     recipeList.innerHTML = "";
+    // map function to inject into inner html for each entry
     arr.map((item)=>{
+        // variables to remember item id if clicked upon
         const recipeUri = item.recipe.uri;
         const recipeId = recipeUri.split("_")[1];
         recipeList.innerHTML += `                      
                 <li class="result-card-wrapper general-card-style">
-                <a href="/src/pages/recipe-page.html?id=${recipeId}">
+                <a href="pages/recipe-page.html?id=${recipeId}">
                     <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
                     <div class="recipe-card-text-wrapper">
                         <p>${item.recipe.label}</p>
@@ -4021,10 +4028,11 @@ function createRandomCards(arr) {
         // variables to remember item id if clicked upon
         const recipeUri = item.recipe.uri;
         const recipeId = recipeUri.split("_")[1];
-        // inject data
+        console.log(recipeId);
+        // inject recipe data into html
         randomCards.innerHTML += `
         <li class="random-card-wrapper general-card-style">
-            <a href="/src/pages/recipe-page.html?id=${recipeId}">
+            <a href="pages/recipe-page.html?id=${recipeId}">
                 <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
                 <div class="recipe-card-text-wrapper random-card-text-wrapper">
                     <p>${item.recipe.label}</p>
@@ -4036,9 +4044,26 @@ function createRandomCards(arr) {
             </a>
         </li>
         `;
-        randomCards.innerHTML += `
-        
-        `;
+    // test append child
+    //         const recipeItem = document.createElement("li")
+    //         recipeItem.setAttribute("class", "recipe-list-thing")
+    //
+    //         const recipeLink = document.createElement("a")
+    //         recipeLink.setAttribute('href', `pages/recipe-page.html?id=${recipeId}`)
+    //
+    //         const recipeTitle = document.createElement("h3")
+    //         recipeTitle.setAttribute("class", "recipe-title-thing")
+    //         recipeTitle.textContent = `${item.recipe.label}`
+    //
+    //         const recipeImg = document.createElement("img")
+    //         recipeImg.setAttribute("src", `${item.recipe.image}`)
+    //
+    //         recipeLink.appendChild(recipeImg)
+    //         recipeLink.appendChild(recipeTitle)
+    //
+    //         recipeItem.appendChild(recipeLink)
+    //
+    //         randomCards.appendChild(recipeItem)
     });
 }
 exports.default = createRandomCards;

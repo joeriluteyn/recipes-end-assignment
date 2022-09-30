@@ -97,7 +97,6 @@ body {
 
 .space-between-wrap-recipe-cards {
     display: flex;
-    justify-content: center;
     align-items: flex-end;
 }
 
@@ -182,6 +181,7 @@ header {
 
 .header-h1-no-bold {
     font-weight: normal;
+    margin: 10px 0
 }
 
 header button {
@@ -189,8 +189,10 @@ header button {
     color: #2d465a;
     border: none;
     text-align: center;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 3px;
+    font-weight: bold;
+
 
 }
 
@@ -394,7 +396,7 @@ footer li {
 
 }
 .recipe_page_recipe-wrapper, .recipe_page-health-labels-wrapper {
-    min-width: 600px;
+    min-width: 500px;
 }
 
 .recipe_page_recipe-wrapper {
@@ -404,6 +406,18 @@ footer li {
 .recipe_page_recipe-wrapper h3 {
     display: inline;
     margin-right: 20px;
+    display: flex;
+}
+
+.recipe-page-top-half {
+    display: flex;
+    justify-content: space-between;
+    min-width: 900px;
+    margin-bottom: 50px;
+}
+
+.recipe-title-ingredients-wrapper {
+    max-width: 400px;
 }
 
 .ingredients-title {
@@ -415,12 +429,34 @@ footer li {
     margin-right: 10px;
 }
 
+.recipe-page-time-icon {
+    width: 20px;
+    height: 20px;
+    background: url("../src/Assets/icons/time.png");
+    background-size: contain;
+    margin: 2px 4px
+}
+
+.recipe_page-recipe-title {
+    max-width: 400px;
+}
+.recipe-page-time-wrapper {
+    display: flex;
+}
+
 .recipe_page-main article {
     display: flex;
 }
 
+.recipe-page-img {
+    border-radius: 5px;
+}
+
 .recipe_page-img-wrapper {
     min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .recipe_page-health-labels-wrapper ul {
@@ -438,10 +474,11 @@ footer li {
 }
 
 .health-label-items {
-    max-width: 600px;
+    max-width: 400px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0;
 }
 /* ------------------------------- 4.8 Calories Calculator -------------------------------- */
 
