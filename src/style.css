@@ -97,7 +97,8 @@ body {
 
 .space-between-wrap-recipe-cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .general-card-style p {
@@ -326,6 +327,7 @@ header button {
     height: 10px;
     background: url("../src/Assets/icons/time.png");
     background-size: contain;
+    margin: 2px 4px
 }
 
 /* ------------------------------- 4.6 Footer -------------------------------- */

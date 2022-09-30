@@ -1,4 +1,4 @@
-export default function createRecipeList(arr) {
+export default function createRecipeCardResults(arr) {
     const recipeList = document.getElementById("recipe-card-list")
 
     recipeList.innerHTML = ""
@@ -9,7 +9,7 @@ export default function createRecipeList(arr) {
         
         recipeList.innerHTML += `                      
                 <li class="result-card-wrapper general-card-style">
-                <a href="recipe-page.html?id=${recipeId}">
+                <a href="/src/pages/recipe-page.html?id=${recipeId}">
                     <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
                     <div class="recipe-card-text-wrapper">
                         <p>${item.recipe.label}</p>

@@ -537,38 +537,35 @@ var _fetchRecipeDataJs = require("./functions/fetchRecipeData.js");
 var _fetchRecipeDataJsDefault = parcelHelpers.interopDefault(_fetchRecipeDataJs);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _createRecipeList = require("./functions/createRecipeList");
-var _createRecipeListDefault = parcelHelpers.interopDefault(_createRecipeList);
+var _createRecipeCardResults = require("./functions/createRecipeCardResults");
+var _createRecipeCardResultsDefault = parcelHelpers.interopDefault(_createRecipeCardResults);
 var _createRandomCards = require("./functions/createRandomCards");
 var _createRandomCardsDefault = parcelHelpers.interopDefault(_createRandomCards);
+// Get elements from HTML to be injected with Javascript
 const submitForm = document.getElementById("onSubmit");
 const ingredients = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
 const diet = document.getElementById("diet-field");
 const cuisineType = document.getElementById("cuisine-field");
+// Event listener, when submit button is clicked function fetchRecipeData is activated
 submitForm.addEventListener("submit", (e)=>{
     e.preventDefault();
-    (0, _fetchRecipeDataJsDefault.default)(ingredients.value, mealType.value, diet.value, cuisineType.value, (0, _createRecipeListDefault.default));
+    (0, _fetchRecipeDataJsDefault.default)(ingredients.value, mealType.value, diet.value, cuisineType.value, (0, _createRecipeCardResultsDefault.default));
 });
+// function of randomCards with search option salt, will generate 3 random cards with salt as ingredient
 function activateRandomCards() {
-    (0, _fetchRecipeDataJsDefault.default)("pasta", "Breakfast", "balanced", "italian", (0, _createRandomCardsDefault.default));
+    (0, _fetchRecipeDataJsDefault.default)("salt", "", "", "", (0, _createRandomCardsDefault.default));
 }
+// Activate the function
 activateRandomCards();
-document.addEventListener("DOMContentLoaded", (event)=>{
-    event.preventDefault();
-    const parameters = new URLSearchParams(window.location.search);
-    const id = parameters.get("id");
-    console.log(id);
-});
-console.log("hallo");
 
-},{"./functions/fetchRecipeData.js":"4FvxE","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/createRecipeList":"791BB","./functions/createRandomCards":"4B7Ai"}],"4FvxE":[function(require,module,exports) {
+},{"./functions/fetchRecipeData.js":"4FvxE","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/createRandomCards":"4B7Ai","./functions/createRecipeCardResults":"iOTdn"}],"4FvxE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _createRecipeList = require("./createRecipeList");
-var _createRecipeListDefault = parcelHelpers.interopDefault(_createRecipeList);
+var _createRecipeCardResults = require("./createRecipeCardResults");
+var _createRecipeCardResultsDefault = parcelHelpers.interopDefault(_createRecipeCardResults);
 async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
@@ -599,7 +596,7 @@ async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFun
 }
 exports.default = fetchRecipeData;
 
-},{"axios":"jo6P5","./createRecipeList":"791BB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./createRecipeCardResults":"iOTdn"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -3954,34 +3951,7 @@ var utils = require("./../utils");
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"5By4s"}],"791BB":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function createRecipeList(arr) {
-    const recipeList = document.getElementById("recipe-card-list");
-    recipeList.innerHTML = "";
-    arr.map((item)=>{
-        const recipeUri = item.recipe.uri;
-        const recipeId = recipeUri.split("_")[1];
-        recipeList.innerHTML += `                      
-                <li class="result-card-wrapper general-card-style">
-                <a href="recipe-page.html?id=${recipeId}">
-                    <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
-                    <div class="recipe-card-text-wrapper">
-                        <p>${item.recipe.label}</p>
-                        <div class="space-between-wrap-recipe-cards">
-                            <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
-                            <div class="time-icon-recipe-card"></div><span>${item.recipe.totalTime}  min.</span>
-                        </div>
-                    </div>
-                </a>
-                </li>                
-            `;
-    });
-}
-exports.default = createRecipeList;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"./../utils":"5By4s"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -4011,18 +3981,50 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"4B7Ai":[function(require,module,exports) {
+},{}],"iOTdn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function createRecipeCardResults(arr) {
+    const recipeList = document.getElementById("recipe-card-list");
+    recipeList.innerHTML = "";
+    arr.map((item)=>{
+        const recipeUri = item.recipe.uri;
+        const recipeId = recipeUri.split("_")[1];
+        recipeList.innerHTML += `                      
+                <li class="result-card-wrapper general-card-style">
+                <a href="/src/pages/recipe-page.html?id=${recipeId}">
+                    <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
+                    <div class="recipe-card-text-wrapper">
+                        <p>${item.recipe.label}</p>
+                        <div class="space-between-wrap-recipe-cards">
+                            <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
+                            <div class="time-icon-recipe-card"></div><span>${item.recipe.totalTime}  min.</span>
+                        </div>
+                    </div>
+                </a>
+                </li>                
+            `;
+    });
+}
+exports.default = createRecipeCardResults;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4B7Ai":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRandomCards(arr) {
+    // get elements from HTML to be injected
     const randomCards = document.getElementById("random-recipe-card-list");
+    // Line to empty the page
     randomCards.innerHTML = "";
+    // Map function that stops at 3 by slice
     arr.slice(0, 3).map((item)=>{
+        // variables to remember item id if clicked upon
         const recipeUri = item.recipe.uri;
         const recipeId = recipeUri.split("_")[1];
+        // inject data
         randomCards.innerHTML += `
         <li class="random-card-wrapper general-card-style">
-            <a href="recipe-page.html?id=${recipeId}">
+            <a href="/src/pages/recipe-page.html?id=${recipeId}">
                 <img class="recipe-card-img" src="${item.recipe.image}" alt="${item.recipe.label}">
                 <div class="recipe-card-text-wrapper random-card-text-wrapper">
                     <p>${item.recipe.label}</p>

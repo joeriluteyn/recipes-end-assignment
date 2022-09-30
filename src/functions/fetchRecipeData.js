@@ -1,5 +1,5 @@
 import axios from "axios";
-import createRecipeList from "./createRecipeList";
+import createRecipeCardResults from "./createRecipeCardResults";
 
 // Fetching data from Edamam API
 export default async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
