@@ -2,18 +2,22 @@ import axios from "axios";
 import createTable from "./createTableProductAmount";
 import calculateServing from "./calculateServing";
 
+
+// variable to remember productname for calculateServing
 export let productNameTest = ""
+// async function to get data from edamam API
 export default async function fetchCaloriesData( ingredient){
     // values for API
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/food-database/v2/parser"
     const API_ID = "0daed655"
     const API_KEY = "3ba192721767a0c9f812f27900774f05"
-    const data = document.getElementById("product-output")
 
+// try block to get data from edamam API
     try {
 
         const response = await axios.get(URI + ENDPOINT,{
+            // parameters to be given to API
             params: {
                 app_id: API_ID,
                 app_key: API_KEY,
@@ -21,24 +25,24 @@ export default async function fetchCaloriesData( ingredient){
             }
         })
 
+        // variables to be given to createTable with path from API
         const arrayOfingredient = response.data.hints[0]
         const productName = arrayOfingredient.food.label
         const productWeight = arrayOfingredient.measures[0].weight
-        const productCalories = arrayOfingredient.food.nutrients.ENERC_KCAL
-        const fat = arrayOfingredient.food.nutrients.FAT
-        const carbs = arrayOfingredient.food.nutrients.CHOCDF
 
-
-
+        // activate createTable with given parameters
     createTable(productName, productWeight,"Gram")
-    function idk (){
+
+        // function to add product name to variable
+    function rememberProductName (){
             productNameTest = productName
     }
-idk()
-        console.log(productNameTest)
+    // activate function
+        rememberProductName()
 
 
 
+// catch errors and to give message
     }
     catch (e) {
         const error = document.getElementById("error-message")

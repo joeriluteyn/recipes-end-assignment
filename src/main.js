@@ -1,14 +1,17 @@
 import fetchRecipeData from "./functions/fetchRecipeData.js";
 import axios from "axios";
-import createRecipeList from "./functions/createRecipeList";
+import createRecipeCardResults from "./functions/createRecipeCardResults";
 import createRandomCards from "./functions/createRandomCards";
 
+// Get elements from HTML to be injected with Javascript
 const submitForm = document.getElementById("onSubmit")
 const ingredients = document.getElementById("ingredients-field")
 const mealType = document.getElementById("meal-type-field")
 const diet = document.getElementById("diet-field")
 const cuisineType = document.getElementById("cuisine-field")
 
+
+// Event listener, when submit button is clicked function fetchRecipeData is activated
 submitForm.addEventListener('submit', (e) =>{
     e.preventDefault()
     fetchRecipeData(
@@ -16,23 +19,15 @@ submitForm.addEventListener('submit', (e) =>{
         mealType.value,
         diet.value,
         cuisineType.value,
-        createRecipeList
+        createRecipeCardResults
         )
     }
 )
 
-
+// function of randomCards with search option salt, will generate 3 random cards with salt as ingredient
 function activateRandomCards (){
-    fetchRecipeData("pasta", "Breakfast", "balanced", "italian", createRandomCards)
+    fetchRecipeData("salt", "", "", "", createRandomCards)
 }
 
+// Activate the function
 activateRandomCards()
-
-document.addEventListener('DOMContentLoaded', (event)=>{
-    event.preventDefault()
-    const parameters = new URLSearchParams(window.location.search)
-    const id = parameters.get("id")
-    console.log(id)
-})
-
-console.log("hallo")

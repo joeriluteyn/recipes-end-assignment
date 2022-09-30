@@ -1,9 +1,9 @@
 import axios from "axios";
-import createRecipeList from "./createRecipeList";
+import createRecipeCardResults from "./createRecipeCardResults";
 
 // Fetching data from Edamam API
 export default async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
-
+// values for API
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/recipes/v2"
     const API_ID = "331ee4f5"
@@ -13,6 +13,7 @@ export default async function fetchRecipeData(searchQuery, mealType, diet, cuisi
     // Fetch data from the API
     try {
         const response = await axios.get(URI + ENDPOINT, {
+            // parameters to be given to API where if variable is empty the value null will be given
             params: {
                 type: "public",
                 app_id: API_ID,
@@ -25,7 +26,9 @@ export default async function fetchRecipeData(searchQuery, mealType, diet, cuisi
             }
         })
 
+        // variable te be given to specified function
         const arrayOfRecipes = response.data.hits
+        // activation of given function
         usedFunction(arrayOfRecipes)
         // console.log(arrayOfRecipes)
 
