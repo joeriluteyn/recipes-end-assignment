@@ -1,8 +1,8 @@
-import fetchCaloriesData from "./functions/fetchCaloriesData";
-import createTable from "./functions/createTableProductAmount";
-import calculateServing from "./functions/calculateServing";
-import fetchCaloriesFatCarbsData from "./functions/fetchCaloriesFatCarbsData";
-import {productNameTest} from "./functions/fetchCaloriesData";
+import fetchCaloriesData from "../functions/fetchCaloriesData";
+import createTable from "../functions/createTableProductAmount";
+import calculateServing from "../functions/calculateServing";
+import fetchCaloriesFatCarbsData from "../functions/fetchCaloriesFatCarbsData";
+import {productNameTest} from "../functions/fetchCaloriesData";
 
 
 const productSubmitForm = document.getElementById("caloriesOnSubmit")
@@ -19,7 +19,6 @@ productSubmitForm.addEventListener("submit", (e) =>{
 
 const servingButton = document.getElementById("add-button")
 const serving = document.getElementById("serving-amount-field")
-const productInfo = document.getElementById("productNameInTable")
 
 servingButton.addEventListener("click", (e) => {
     e.preventDefault()

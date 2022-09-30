@@ -18,16 +18,16 @@ export default async function fetchRecipeData(searchQuery, mealType, diet, cuisi
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: searchQuery,
-                mealType: mealType,
-                diet: diet,
-                cuisineType: cuisineType,
+                mealType: mealType || null,
+                diet: diet || null,
+                cuisineType: cuisineType || null,
                 random: true
             }
         })
 
         const arrayOfRecipes = response.data.hits
         usedFunction(arrayOfRecipes)
-        console.log(arrayOfRecipes)
+        // console.log(arrayOfRecipes)
 
     }    // Catch error messages and show them in the UI
     catch (e) {

@@ -1,5 +1,4 @@
 import fetchRecipeData from "./functions/fetchRecipeData.js";
-import fetchRecipeDataForRandom from "./functions/fetchRecipeDataForRandom";
 import axios from "axios";
 import createRecipeList from "./functions/createRecipeList";
 import createRandomCards from "./functions/createRandomCards";
@@ -28,3 +27,12 @@ function activateRandomCards (){
 }
 
 activateRandomCards()
+
+document.addEventListener('DOMContentLoaded', (event)=>{
+    event.preventDefault()
+    const parameters = new URLSearchParams(window.location.search)
+    const id = parameters.get("id")
+    console.log(id)
+})
+
+console.log("hallo")
