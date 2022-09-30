@@ -34,6 +34,10 @@ img {
     width: 100%;
 }
 
+a:link{
+    text-decoration: none;
+    color: #283e53;
+}
 /* ------------------------------- 2. Typography ----------------------------------- */
 
 body {
@@ -213,8 +217,12 @@ header button {
 }
 
 .random-card-wrapper:nth-child(even){
-
+    height: 350px;
     width: 350px;
+}
+
+.random-card-wrapper:nth-child(even) .recipe-card-img {
+    height: 350px;
 }
 
 .random-card-wrapper:nth-child(even) .recipe-card-text-wrapper {
@@ -381,14 +389,23 @@ footer li {
 .recipe_page-main {
     color: #283e53;
     padding-top: 50px;
+
 }
 .recipe_page_recipe-wrapper, .recipe_page-health-labels-wrapper {
     min-width: 600px;
 }
 
+.recipe_page_recipe-wrapper {
+    margin-bottom: 30px;
+}
+
 .recipe_page_recipe-wrapper h3 {
     display: inline;
     margin-right: 20px;
+}
+
+.ingredients-title {
+    margin-top: 20px;
 }
 
 .recipe_page-time-icon {
@@ -415,9 +432,15 @@ footer li {
     border: 2px solid #283e53;
     background-color: #70b6be;
     border-radius: 25px;
-    margin-right: 5px;
+    margin: 5px;
 }
 
+.health-label-items {
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 /* ------------------------------- 4.8 Calories Calculator -------------------------------- */
 
 .calories_calculator-inner-container {

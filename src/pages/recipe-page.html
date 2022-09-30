@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>The clueless cook</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./Assets/fonts/fonts.css">
-    <script src="main.js" type="module" defer></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Assets/fonts/fonts.css">
+    <script src="recipe-page.js" type="module" defer></script>
 </head>
 <body>
 <nav class="outer-container nav-container">
     <div class="logo"><h2>The Clueless Cook</h2></div>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="">About</a></li>
         <li><a href="calories-calculator.html">Calculator</a></li>
     </ul>
@@ -19,30 +19,58 @@
 <main class="outer-container recipe_page-main">
     <section class="recipe_page-recipe inner-container">
         <article>
-            <div class="recipe_page_recipe-wrapper">
-                <h3>Recipe Name Here</h3><h3><img class="recipe_page-time-icon" src="Assets/icons/time.png" alt="time">mins.</h3>
-                <h4>Ingredients</h4>
-                <ul>
-                    <Li>Lorem ipsum.</Li>
-                    <li>Lorem ipsum dolor sit amet.</li>
+            <div>
+                <div id="recipe-info-and ingredients" class="recipe_page_recipe-wrapper">
+
+                </div>
+                <ul id="ingredients-list">
+
                 </ul>
             </div>
-            <div class="recipe_page-img-wrapper">
-                <img src="Assets/icons/twitter.png" alt="">
+            <div id="recipe-page-img" class="recipe_page-img-wrapper">
+
             </div>
         </article>
         <article>
             <div class="recipe_page-health-labels-wrapper">
                 <h4>Health labels</h4>
-                <ul>
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
+                <ul id="health-labels-items" class="health-label-items">
                 </ul>
             </div>
 
             <div class="recipe_page-nutrients-wrapper">
                 <h4>Nutrients</h4>
-                <table>
+                <table id="nutrients-table">
+                    <tr>
+                        <td>Energy</td>
+                        <td id="energy-field"></td>
+                        <td>kcal</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td id="fat-field"></td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>Carbs</td>
+                        <td id="carbs-field"></td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>Sugar</td>
+                        <td id="sugar-field"></td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td id="protein-field"></td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td id="sodium-field"></td>
+                        <td>mg</td>
+                    </tr>
 
                 </table>
             </div>
@@ -80,16 +108,16 @@
             <p>Social</p>
             <div class="icon-wrapper">
                 <div class="social-media-icons">
-                    <img src="Assets/icons/facebook.svg" alt="facebook">
+                    <img src="../Assets/icons/facebook.svg" alt="facebook">
                 </div>
                 <div class="social-media-icons">
-                    <img src="Assets/icons/instagram.svg" alt="instagram">
+                    <img src="../Assets/icons/instagram.svg" alt="instagram">
                 </div>
                 <div class="social-media-icons">
-                    <img src="Assets/icons/linkedin.svg" alt="linkedin">
+                    <img src="../Assets/icons/linkedin.svg" alt="linkedin">
                 </div>
                 <div class="social-media-icons">
-                    <img src="Assets/icons/twitter.svg" alt="twitter">
+                    <img src="../Assets/icons/twitter.svg" alt="twitter">
                 </div>
             </div>
         </div>
