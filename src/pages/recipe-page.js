@@ -12,3 +12,5 @@ document.addEventListener('DOMContentLoaded', (event)=>{
 
 // activate function with given parameter
 recipePageFetchRecipeData( "4806c57d4d2f0617050247e9782c19e1")
+
+export const foodApiKey = "0daed655"

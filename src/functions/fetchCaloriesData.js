@@ -4,6 +4,7 @@ import calculateServing from "./calculateServing";
 
 // variable to remember productname for calculateServing
 export let productNameTest = ""
+
 // async function to get data from edamam API
 export default async function fetchCaloriesData(ingredient) {
     // values for API

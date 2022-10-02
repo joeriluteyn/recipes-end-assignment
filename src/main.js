@@ -32,3 +32,4 @@ function activateRandomCards() {
 
 // Activate the function
 activateRandomCards()
+

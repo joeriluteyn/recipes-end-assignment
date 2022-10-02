@@ -6,8 +6,8 @@ export default async function fetchCaloriesFatCarbsData(product, amount) {
 
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/food-database/v2/parser"
-    const API_ID = "0daed655"
-    const API_KEY = "3ba192721767a0c9f812f27900774f05"
+    const API_ID = ""
+    const API_KEY = ""
     const data = document.getElementById("product-output")
 // try block to get data from edamam API
     try {
