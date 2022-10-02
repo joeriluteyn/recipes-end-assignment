@@ -12,7 +12,7 @@
 <body>
 
 <nav class="outer-container nav-container">
-    <div class="logo"><h2>The Clueless Cook</h2></div>
+    <div class="logo"><a href="index.html"><h2>The Clueless Cook</h2></a></div>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="">About</a></li>
@@ -23,14 +23,16 @@
     <div class="inner-container header-container">
         <h1>Delicious Recipes</h1>
         <h1 class="header-h1-no-bold">Daily Updated</h1>
-        <button type="button">Find Recipes &#129130;</button>
+        <a href="#onSubmit">
+            <button type="button">Find Recipes &#129130;</button>
+        </a>
     </div>
 </header>
 <main>
     <section class="outer-container randomized-cards-section">
         <div class="random-card-align">
-        <ul id="random-recipe-card-list" class="search-result-recipe-cards-wrapper random-card-container inner-container">
-        </ul>
+            <ul id="random-recipe-card-list" class="random-card-container inner-container">
+            </ul>
         </div>
     </section>
     <section class="outer-container search-bar">
@@ -88,11 +90,11 @@
             <label for="time-field">
                 <select name="time-field" id="time-field">
                     <option selected value="">Time</option>
-                    <option value="Breakfast">Breakfast</option>
-                    <option value="Lunch">Lunch</option>
-                    <option value="Dinner">Dinner</option>
-                    <option value="Snack">Snack</option>
-                    <option value="Teatime">Teatime</option>
+                    <option value="15">0-15 mins</option>
+                    <option value="15-30">15-30 mins</option>
+                    <option value="30-45">30-45 mins</option>
+                    <option value="45-60">45-60 mins</option>
+                    <option value="60+">60+ mins</option>
                 </select>
             </label>
             <button class="submit-button" type="submit">Search</button>
@@ -103,7 +105,7 @@
     </section>
     <section class="outer-container search-results">
         <div>
-            <ul id="recipe-card-list" class="search-result-recipe-cards-wrapper inner-container">
+            <ul id="recipe-card-list" class="search-result-recipe-cards-wrapper">
             </ul>
         </div>
     </section>

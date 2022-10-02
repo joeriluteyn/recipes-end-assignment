@@ -1,5 +1,8 @@
 
 // Variables to calculate the total of set variable
+import mathRound from "./mathRoundDecimals";
+import mathRoundDecimals from "./mathRoundDecimals";
+
 let caloriesSum = 0
 let fatSum = 0
 let carbSum = 0
@@ -9,9 +12,9 @@ export default function calculateServing(serving, productName, calories, fat, ca
     const calculateProductInfo = document.getElementById("calculate-serving-output")
 
     // Math to get 2 decimals after the number
-    const caloriesRounded = Math.round(calories * serving * 100) / 100
-    const fatRounded = Math.round(fat * serving * 100) / 100
-    const carbsRounded = Math.round(carbs * serving * 100) / 100
+    const caloriesRounded = mathRoundDecimals(calories * serving)
+    const fatRounded = mathRoundDecimals(fat * serving)
+    const carbsRounded = mathRoundDecimals(carbs * serving)
 // Inject the data into HTML
     calculateProductInfo.innerHTML += `
             <td>${productName}</td>
@@ -32,9 +35,9 @@ export default function calculateServing(serving, productName, calories, fat, ca
     const calculateTotal = document.getElementById("total-output-calories-and-serving-search")
 
     // to round again
-    const caloriesSumRounded = Math.round( caloriesSum* 100) / 100
-    const fatSumRounded = Math.round( fatSum * 100) / 100
-    const carbSumRounded = Math.round( carbSum * 100) / 100
+    const caloriesSumRounded = mathRoundDecimals( caloriesSum)
+    const fatSumRounded = mathRoundDecimals( fatSum)
+    const carbSumRounded = mathRoundDecimals( carbSum)
 
 // inject total into HTML
     calculateTotal.innerHTML = `

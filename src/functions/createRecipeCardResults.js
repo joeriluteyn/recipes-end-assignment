@@ -9,7 +9,11 @@ export default function createRecipeCardResults(arr) {
         // variables to remember item id if clicked upon
         const recipeUri = item.recipe.uri
         const recipeId = recipeUri.split("_")[1]
-        
+        let recipeTime = item.recipe.totalTime
+        if (recipeTime == 0) {
+            recipeTime = "..."
+            console.log(recipeTime)
+        }
         recipeList.innerHTML += `                      
                 <li class="result-card-wrapper general-card-style">
                 <a href="pages/recipe-page.html?id=${recipeId}">
@@ -18,7 +22,7 @@ export default function createRecipeCardResults(arr) {
                         <p>${item.recipe.label}</p>
                         <div class="space-between-wrap-recipe-cards">
                             <span> ${Math.round(item.recipe.calories)} Calories | ${item.recipe.ingredients.length} ingredients</span>
-                            <div class="time-icon-recipe-card"></div><span>${item.recipe.totalTime}  min.</span>
+                            <div class="time-icon-recipe-card"></div><span>${recipeTime}  min.</span>
                         </div>
                     </div>
                 </a>

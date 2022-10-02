@@ -34,10 +34,11 @@ img {
     width: 100%;
 }
 
-a:link{
+a:link {
     text-decoration: none;
     color: #283e53;
 }
+
 /* ------------------------------- 2. Typography ----------------------------------- */
 
 body {
@@ -53,7 +54,7 @@ body {
 }
 
 .inner-container {
-    flex-basis: 600px;
+    flex-basis: 800px;
     flex-grow: 0;
     flex-shrink: 1;
     margin: 40px 20px;
@@ -77,6 +78,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-shrink: 0;
 }
 
 
@@ -89,7 +91,7 @@ body {
     min-width: 300px;
     padding: 20px;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     background-color: #eeeeee;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -149,6 +151,7 @@ nav .logo {
     align-items: center;
 }
 
+
 nav ul a {
     text-decoration: none;
     font-weight: bold;
@@ -159,6 +162,11 @@ nav ul a:visited {
     color: black;
     text-decoration: none;
 }
+
+nav .logo a:visited {
+    color: #2d465a;
+}
+
 /* --------------- 4.2 Header ------------------- */
 
 header {
@@ -210,7 +218,8 @@ header button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-basis: 1000px;
+    flex-wrap: nowrap;
+    max-width: 1200px;
 }
 
 .random-card-wrapper {
@@ -219,9 +228,11 @@ header button {
     position: relative;
 }
 
-.random-card-wrapper:nth-child(even){
+.random-card-wrapper:nth-child(even) {
     height: 350px;
     width: 350px;
+    z-index: 2;
+    box-shadow: 0px 10px 18px #888888;
 }
 
 .random-card-wrapper:nth-child(even) .recipe-card-img {
@@ -239,9 +250,9 @@ header button {
     align-items: center;
     position: absolute;
     top: 350px;
-
+    min-width: 600px;
+    flex-wrap: nowrap;
 }
-
 
 
 /* ------------------------------- 4.4 Search bar -------------------------------- */
@@ -265,8 +276,18 @@ header button {
 .search-bar select, .submit-button {
     border: none;
     border-radius: 3px;
-    padding: 10px;
+    padding: 9px;
     color: #2d465a;
+}
+
+.submit-button {
+    background-color: #70b6be;
+    color: #2d465a;
+    border: none;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-weight: bold;
 }
 
 .search-bar select {
@@ -295,6 +316,7 @@ header button {
     border-top-style: hidden;
 }
 
+
 /* ------------------------------- 4.5 Search Results -------------------------------- */
 
 .search-result-recipe-cards-wrapper {
@@ -317,7 +339,6 @@ header button {
 
 .recipe-card-img {
     border-radius: 5px;
-
 }
 
 .result-card-wrapper span {
@@ -395,6 +416,7 @@ footer li {
     padding-top: 50px;
 
 }
+
 .recipe_page_recipe-wrapper, .recipe_page-health-labels-wrapper {
     min-width: 500px;
 }
@@ -404,9 +426,7 @@ footer li {
 }
 
 .recipe_page_recipe-wrapper h3 {
-    display: inline;
     margin-right: 20px;
-    display: flex;
 }
 
 .recipe-page-top-half {
@@ -440,6 +460,7 @@ footer li {
 .recipe_page-recipe-title {
     max-width: 400px;
 }
+
 .recipe-page-time-wrapper {
     display: flex;
 }
@@ -479,7 +500,19 @@ footer li {
     justify-content: center;
     flex-wrap: wrap;
     margin: 0;
+    font-weight: bold;
 }
+
+.nutrients-value {
+    text-align: right;
+    width: 350px;
+    padding-right: 10px;
+}
+
+.recipe_page-nutrients-wrapper {
+    font-weight: bold;
+}
+
 /* ------------------------------- 4.8 Calories Calculator -------------------------------- */
 
 .calories_calculator-inner-container {
@@ -543,4 +576,5 @@ th, td {
 .border-top {
     border-top: 1px solid black;
 }
+
 /* ------------------------------- 5. Media Queries -------------------------------- */
