@@ -31,7 +31,7 @@ On the calories calculator page there is a search input field where a product or
 In the serving bar the user can input the amount of servings. The output of this search will be the calories, fat and carbs of the specified product.
 Multiple products can be added to this table. The sum of the total calories will be shown in the last table.
 
-![accounts]( Assets/images/main-page-screenshot.png?raw=true)
+![accounts]( src/Assets/images/main-page-screenshot.png?raw=true)
 
 --------------------
 Necessary items to run application 
@@ -58,8 +58,8 @@ Instructions for creating API IDs and API keys
 1. Make an account on [Edamam](https://www.edamam.com/)
 2. log in on the website
 3. Click the accounts tab in the navigation bar and then GO to dashboard
-![accounts]( Assets/images/screenshot-accounts.png?raw=true)
-![accounts]( Assets/images/dashboard.png?raw=true)
+![accounts]( src/Assets/images/screenshot-accounts.png?raw=true)
+![accounts]( src/Assets/images/dashboard.png?raw=true)
 4. Go to the second tab "Applications"
 5. Press "Create new application" at top right
 6. First we make an "Recipe name Api"
@@ -67,22 +67,22 @@ Instructions for creating API IDs and API keys
 8. Save the Application ID and Application Key
 9. Go to the Files fetchRecipeData.js and recipePageFetchRecipeData.js
 
-   [fetchRecipeData](functions/fetchRecipeData.js)
+   [fetchRecipeData](src/functions/fetchRecipeData.js)
 
-   [recipePageFetchRecipeData](functions/recipePageFetchRecipeData.js)
+   [recipePageFetchRecipeData](src/functions/recipePageFetchRecipeData.js)
 10. Insert your Application ID between the "" in const API_ID = " "
 11. Insert your Application Key between the "" const API_key= " "
 
-    ![accounts]( Assets/images/insert-key-screenshot.png?raw=true)
+    ![accounts]( src/Assets/images/insert-key-screenshot.png?raw=true)
 
 12. We go back to Applications from step 3 Create new application
 13. Now we make a "Food Database Api"
 14. Save the Application ID and Application key again
 15. Insert these into:
 
-[fetchCaloriesData](functions/fetchCaloriesData.js)
+[fetchCaloriesData](src/functions/fetchCaloriesData.js)
 
-[fetchCaloriesFatCarbsData](functions/fetchCaloriesFatCarbsData.js)
+[fetchCaloriesFatCarbsData](src/functions/fetchCaloriesFatCarbsData.js)
 
 -------
 
