@@ -1,12 +1,17 @@
-import mathRound from "./mathRound";
+import mathRound from "./mathRoundDecimals";
+import mathRoundDecimals from "./mathRoundDecimals";
 // function to completely add all information from the recipe
-export default function createRecipeInfo (arr) {
+export default function createRecipeInfo(arr) {
     // get element from html to be injected
+    let recipeTime = arr.totalTime
+    if (recipeTime == 0) {
+        recipeTime = "..."
+    }
     const recipeInfoIngredients = document.getElementById("recipe-info-and ingredients")
 // adds recipe title
     recipeInfoIngredients.innerHTML = `
     <h2 class="recipe_page-recipe-title">${arr.label}</h2>
-    <h2 class="recipe-page-time-wrapper"><div class="recipe-page-time-icon"></div>${arr.totalTime} mins.</h2>
+    <h2 class="recipe-page-time-wrapper"><div class="recipe-page-time-icon"></div>${recipeTime} mins.</h2>
         <h3 class="ingredients-title">Ingredients</h3>
     `
 
@@ -23,13 +28,13 @@ export default function createRecipeInfo (arr) {
     const recipeImg = document.getElementById("recipe-page-img")
 
     // adds img
-    recipeImg.innerHTML =`
+    recipeImg.innerHTML = `
     <img class="recipe-page-img" src="${arr.image}" alt="${arr.label}">
     `
 // get element from html to be injected
     const healthLabels = document.getElementById("health-labels-items")
-    arr.healthLabels.map((item) =>{
-        healthLabels.innerHTML +=`
+    arr.healthLabels.map((item) => {
+        healthLabels.innerHTML += `
         <li>${item}</li>
         `
     })
@@ -44,10 +49,10 @@ export default function createRecipeInfo (arr) {
     const nutrients = arr.totalNutrients
 
     // adds all nutrient values
-    energy.innerText = `${mathRound(nutrients.ENERC_KCAL.quantity)}`
-    fat.innerText = `${mathRound(nutrients.FAT.quantity)}`
-    carbs.innerText = `${mathRound(nutrients.CHOCDF.quantity)}`
-    sugar.innerText = `${mathRound(nutrients.SUGAR.quantity)}`
-    protein.innerText = `${mathRound(nutrients.PROCNT.quantity)}`
-    sodium.innerText = `${mathRound(nutrients.NA.quantity)}`
+    energy.innerText = `${mathRoundDecimals(nutrients.ENERC_KCAL.quantity)}`
+    fat.innerText = `${mathRoundDecimals(nutrients.FAT.quantity)}`
+    carbs.innerText = `${mathRoundDecimals(nutrients.CHOCDF.quantity)}`
+    sugar.innerText = `${mathRoundDecimals(nutrients.SUGAR.quantity)}`
+    protein.innerText = `${mathRoundDecimals(nutrients.PROCNT.quantity)}`
+    sodium.innerText = `${mathRoundDecimals(nutrients.NA.quantity)}`
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import calculateServing from "./calculateServing";
 // async function to get data from edamam API
-export default async function fetchCaloriesFatCarbsData( product, amount){
+export default async function fetchCaloriesFatCarbsData(product, amount) {
     // values for API
 
     const URI = "https://api.edamam.com"
@@ -12,7 +12,7 @@ export default async function fetchCaloriesFatCarbsData( product, amount){
 // try block to get data from edamam API
     try {
 
-        const response = await axios.get(URI + ENDPOINT,{
+        const response = await axios.get(URI + ENDPOINT, {
             // parameters to be given to API
             params: {
                 app_id: API_ID,
@@ -31,7 +31,7 @@ export default async function fetchCaloriesFatCarbsData( product, amount){
         calculateServing(servingAmount, productName, productCalories, fat, carbs)
 
     }
-    // catch errors
+        // catch errors
     catch (e) {
         const error = document.getElementById("error-message")
 

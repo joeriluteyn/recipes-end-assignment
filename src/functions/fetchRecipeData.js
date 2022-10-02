@@ -2,7 +2,7 @@ import axios from "axios";
 import createRecipeCardResults from "./createRecipeCardResults";
 
 // Fetching data from Edamam API
-export default async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, usedFunction) {
+export default async function fetchRecipeData(searchQuery, mealType, diet, cuisineType, time, usedFunction) {
 // values for API
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/recipes/v2"
@@ -22,6 +22,7 @@ export default async function fetchRecipeData(searchQuery, mealType, diet, cuisi
                 mealType: mealType || null,
                 diet: diet || null,
                 cuisineType: cuisineType || null,
+                time: time || null,
                 random: true
             }
         })

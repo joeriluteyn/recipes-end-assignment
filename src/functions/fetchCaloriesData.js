@@ -2,11 +2,10 @@ import axios from "axios";
 import createTable from "./createTableProductAmount";
 import calculateServing from "./calculateServing";
 
-
 // variable to remember productname for calculateServing
 export let productNameTest = ""
 // async function to get data from edamam API
-export default async function fetchCaloriesData( ingredient){
+export default async function fetchCaloriesData(ingredient) {
     // values for API
     const URI = "https://api.edamam.com"
     const ENDPOINT = "/api/food-database/v2/parser"
@@ -16,12 +15,10 @@ export default async function fetchCaloriesData( ingredient){
 // try block to get data from edamam API
     try {
 
-        const response = await axios.get(URI + ENDPOINT,{
+        const response = await axios.get(URI + ENDPOINT, {
             // parameters to be given to API
             params: {
-                app_id: API_ID,
-                app_key: API_KEY,
-                ingr: ingredient
+                app_id: API_ID, app_key: API_KEY, ingr: ingredient
             }
         })
 
@@ -31,20 +28,19 @@ export default async function fetchCaloriesData( ingredient){
         const productWeight = arrayOfingredient.measures[0].weight
 
         // activate createTable with given parameters
-    createTable(productName, productWeight,"Gram")
+        createTable(productName, productWeight, "Gram")
 
         // function to add product name to variable
-    function rememberProductName (){
+        function rememberProductName() {
             productNameTest = productName
-    }
-    // activate function
+        }
+
+        // activate function
         rememberProductName()
 
 
-
 // catch errors and to give message
-    }
-    catch (e) {
+    } catch (e) {
         const error = document.getElementById("error-message")
 
         if (e.response.status === 404) {
